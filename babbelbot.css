@@ -1,0 +1,111 @@
+#bb-main{
+    position: relative;
+}
+
+#bb-chatbox-inner{
+    background: #fff;
+    width: 100%;
+
+    overflow:hidden;
+
+}
+#bb-chatbox-conversation{
+
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    border-left: 2px solid black; /* to test */
+    border-right: 2px solid black;
+}
+
+#bb-chatbox-conversation-inner{
+max-height: 100%;
+width: 100%;
+    overflow-y: scroll;
+align-self: flex-end;
+}
+
+
+#bb-chatbox-conversation-inner .bb-chat-row{
+width: 100%;
+}
+
+#bb-chatbox-conversation-inner .bb-chat-row .bb-chatbot{
+     padding: 10px 10px 10px 10px;
+     margin:5px 25px 5px 5px;
+     background-color: blue;
+     border-radius: 5px 5px 5px 5px;
+     word-break: break-all;
+     color: #fff;
+     float:left;
+
+}
+#bb-chatbox-conversation-inner .bb-chat-row .bb-chatbot-sender, #bb-chatbox-conversation-inner .bb-chat-row .bb-user-sender{
+    margin:5px 5px 0 5px;
+    color: #575757;
+    font-size: 11px;
+}
+
+#bb-chatbox-conversation-inner .bb-chat-row .bb-chatbot-sender span,
+#bb-chatbox-conversation-inner .bb-chat-row .bb-user-sender span{
+    font-weight: bold;
+}
+#bb-chatbox-conversation-inner .bb-chat-row .bb-chatbot-sender{
+    margin:5px 5px 0 5px;
+    float:left;
+}
+#bb-chatbox-conversation-inner .bb-chat-row .bb-user-sender{
+    margin:5px 5px 0 5px;
+    float:right;
+}
+#bb-chatbox-conversation-inner .bb-chat-row .bb-user{
+    padding: 10px 10px 10px 10px;
+    margin:5px 5px 5px 25px;
+    background-color: blue;
+    color: #fff;
+    float:right;
+    word-break: break-all;
+
+    border-radius: 5px 5px 5px 5px;
+
+}
+
+#bb-chatbox-conversation-inner .bb-chat-row .quick-reply{
+    display: inline-block;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#bb-chatbox-conversation-inner .bb-chat-row.quick-replies{
+   text-align: center;
+}
+
+#bb-chatbox-title{
+    padding: 10px 25px 10px 10px;
+    width: 100%;
+    background: #fff;
+    border: 2px solid black;
+    cursor: pointer;
+}
+#bb-chatbox-input{
+    height:50px;
+    border: 2px solid black;
+    padding: 5px;
+    width: 100%;
+ }
+
+#bb-chatbox-input textarea{
+    box-sizing:border-box;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    overflow:hidden;
+    border: none;
+}
+
+#bb-chatbox-input textarea:focus{
+   outline:none;
+}
