@@ -16,7 +16,7 @@ $('#jouw_element_id').babbelbot({
 
 ```
 
-#opties
+# opties
 
 - (verplicht) de wit.ai access token die je hebt aangemaakt.
 
