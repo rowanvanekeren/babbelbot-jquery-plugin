@@ -217,9 +217,10 @@
         }
 
         function processMessages(answerObj){
-            var randAnswer = answerObj.answers[Math.floor(Math.random() * answerObj.answers.length)];
-            responseMessageBot(randAnswer.answer);
-
+            if(typeof answerObj.answers != 'undefined' && answerObj.answers.length > 0){
+                var randAnswer = answerObj.answers[Math.floor(Math.random() * answerObj.answers.length)];
+                responseMessageBot(randAnswer.answer);
+            }
         }
 
         function processQuickReplies(answerObj){
