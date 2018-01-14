@@ -296,7 +296,7 @@
                 '<div class="bb-chatbot-sender"> <span>' + settings.botName +  ' </span>' + getCurrentTime() + '</div>' +
                 '<div style="clear:both"></div>' +
                 '<div class="bb-chatbot" style="color:' + settings.botColor + '; background-color: ' + settings.botBg + '">' +
-                text
+                urlify(nl2br(text))
                 + '</div>' +
                 '<div style="clear:both"></div>' +
                 '</div>');
@@ -304,8 +304,19 @@
                 scrollDiv.scrollTop(scrollDiv[0].scrollHeight);
         }
 
+        function nl2br (str, is_xhtml) {
+            var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+            return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+        }
 
-
+        function urlify(text) {
+            var urlRegex = /(https?:\/\/[^\s]+)/g;
+            return text.replace(urlRegex, function(url) {
+                return '<a href="' + url + '">' + url + '</a>';
+            });
+            // or alternatively
+            // return text.replace(urlRegex, '<a href="$1">$1</a>')
+        }
 
         function getCurrentTime(){
             var dt = new Date();
