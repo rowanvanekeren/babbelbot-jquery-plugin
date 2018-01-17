@@ -4,7 +4,6 @@ Om op de website te plaatsen
 # installatie
 
 
-
 ```javascript
 
 //jquery verplicht
@@ -25,6 +24,10 @@ $('#jouw_element_id').babbelbot({
 - (verplicht) url van babbelbot.be, deze is te vinden in de embed sectie van de app.              
             
             babbelbotUrl:       // default = ''
+            
+- onthouden van het gesprek (localstorage).          
+            
+            saveConversation:   // default = true
             
 - achtergrondkleur voor het chatgedeelte.          
             

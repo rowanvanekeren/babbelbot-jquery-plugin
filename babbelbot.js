@@ -44,7 +44,8 @@
             quickReplyColor: '#185355',
             standardOpen : true,
             title : 'Babbelbot',
-            botName : 'Babbelbot'
+            botName : 'Babbelbot',
+            saveConversation : true
         }, options);
 
         /* check if bot is available */
@@ -103,6 +104,13 @@
 
         if(readCookie('bb_chatbot_user') != null && typeof readCookie('bb_chatbot_user') != 'undefined' ){
             currentUser = readCookie('bb_chatbot_user');
+
+            if(settings.saveConversation){
+                if(localStorage.getItem('chat_converdation_' +currentUser) != null && typeof localStorage.getItem('chat_converdation_' +currentUser) != 'undefined' ){
+                    mainBot.find('#bb-chatbox-conversation-inner').html(localStorage.getItem('chat_converdation_' +currentUser));
+                }
+            }
+
         }else{
             var generator = new IDGenerator();
             currentUser = generator.generate();
@@ -269,6 +277,15 @@
             });
         }
 
+        function saveConversationToLocalStorage(){
+            var chatDom = mainBot.find('#bb-chatbox-conversation-inner');
+            if(settings.saveConversation) {
+                if (readCookie('bb_chatbot_user') != null && typeof readCookie('bb_chatbot_user') != 'undefined') {
+                    var user_id = readCookie('bb_chatbot_user');
+                    localStorage.setItem('chat_converdation_' +user_id, chatDom.html());
+                }
+            }
+        }
 
         function pingToServerChatbot(){
             $.ajax({
@@ -302,6 +319,8 @@
                 '</div>');
 
                 scrollDiv.scrollTop(scrollDiv[0].scrollHeight);
+
+                saveConversationToLocalStorage();
         }
 
         function nl2br (str, is_xhtml) {
