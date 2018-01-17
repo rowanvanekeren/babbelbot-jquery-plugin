@@ -194,7 +194,7 @@
                     q : text,
                 },
                 success: function( data, textStatus ){
-                    console.log(data);
+
                     postRequestToBabbelbot(data, text , user_id);
                 },
                 error: function(data, textStatus ){
@@ -232,14 +232,14 @@
         }
 
         function processQuickReplies(answerObj){
-            console.log(answerObj);
+
             var quick_replies = '';
             if(typeof answerObj.quick_replies != 'undefined' && answerObj.quick_replies.length > 0){
 
                 for(var i = 0; i < answerObj.quick_replies.length; i++){
                     quick_replies += '<div class="quick-reply" style="border: ' + settings.quickReplyBorder +'; color: ' + settings.quickReplyColor + '">' + answerObj.quick_replies[i].answer +  ' </div>';
 
-                    console.log(answerObj.quick_replies[i].answer);
+
                 }
             }
 
@@ -297,10 +297,9 @@
                     type : 'ping'
                 },
                 success: function( data, status, jQxhr ){
+                  /*  if(status == 'success'){
 
-                    if(status == 'success'){
-                        console.log(data);
-                    }
+                    }*/
                 },
                 error: function( data, status, errorThrown ){
                         throw Error("Cannot ping to server please fix connection");
