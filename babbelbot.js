@@ -108,6 +108,8 @@
             if(settings.saveConversation){
                 if(localStorage.getItem('chat_converdation_' +currentUser) != null && typeof localStorage.getItem('chat_converdation_' +currentUser) != 'undefined' ){
                     mainBot.find('#bb-chatbox-conversation-inner').html(localStorage.getItem('chat_converdation_' +currentUser));
+
+                    scrollDiv.scrollTop(scrollDiv[0].scrollHeight);
                 }
             }
 
